@@ -3,21 +3,16 @@
         <title>Django Girls blog</title>
     </head>
     <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
+     <div>
+    <h1><a href="/">Django Girls Blog</a></h1>
+</div>
 
-        <div>
-            <p>published: 14.01.2018, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>We purchased Django Girls goodies in bulk quantity, which massively lowered their price. It will save everyone time and money and you will be able to focus on more awesome things. The box can be sent to Django Girls workshops from all over the world: small goodies and swag won't drain your sponsor money anymore! YAY! </p>
-        </div>
-
-        <div>
-            <p>published: 16.02.2018, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Get a golden envelope full of Django Girls stickers, gold letter balloons, stickers of our partners, buttons and nametags. 
-Everything you need to make your workshop DjangoGirlsy!</p>
-        </div>
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
     </body>
 </html>
